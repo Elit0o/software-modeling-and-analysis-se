@@ -53,7 +53,7 @@ create table Races(
 	RaceId int identity(1,1) primary key,
 	GrandPrixName varchar(100) not null,
 	CircuitName varchar(100) not null,
-	Country varchar(50) not null, -- КОРИГИРАНО: Беше datetime, а трябва да е стрингово поле за държавата
+	Country varchar(50) not null,
 	RaceDate datetime not null,
 	TotalLaps int not null
 )
@@ -71,7 +71,7 @@ create table RaceResult(
 create table VideoStreams(
 	StreamId int identity(1,1) primary key,
 	RaceId int not null,
-	DriverId int null, -- КОРИГИРАНО: Позволява NULL, тъй като главният стрийм (Main Feed) няма конкретен пилот
+	DriverId int null,
 	StreamType varchar(50) not null,
 	QualityMax varchar(20) not null,
 	constraint FK_VideoStreams_Races foreign key (RaceId) references Races(RaceId),
@@ -88,7 +88,6 @@ create table UserWatchHistory (
 	constraint FK_WatchHitory_Streams foreign key (StreamId) references VideoStreams(StreamId)
 )
 
--- Data (с ISO формат на датите за сигурност)
 
 insert into SubscriptionPlans (PlanName, MonthlyFee, IsLiveAllowed) values
 ('F1 Access', 2.99, 0),
