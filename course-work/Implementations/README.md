@@ -1,6 +1,5 @@
 # F1TV Data Warehouse & Business Intelligence Project
 
-## Информация за студента
 * **Факултетен номер:** 2401321007
 * **Име на проекта:** F1TV
 
